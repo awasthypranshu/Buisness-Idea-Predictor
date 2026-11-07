@@ -1,6 +1,15 @@
+import { ClerkProvider } from '@clerk/nextjs';
 import type { AppProps } from 'next/app';
-import '../styles/globals.css';  // This imports Tailwind styles
+import Head from 'next/head';
+import '../styles/globals.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <ClerkProvider {...pageProps}>
+      <Head>
+        <title>Business Idea Generator</title>
+      </Head>
+      <Component {...pageProps} />
+    </ClerkProvider>
+  );
 }
