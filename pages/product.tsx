@@ -147,7 +147,7 @@ export default function Product() {
 
             {/* Subscription Protection */}
             <Show
-                when={{ plan: "premium_subscription" as any }}
+                when={(has) => has({ plan: "busy_lobster" }) || has({ plan: "busy-lobster" }) || has({ plan: "premium_subscription" })}
                 fallback={
                     <div className="container mx-auto px-4 py-12">
                         <header className="text-center mb-12">
